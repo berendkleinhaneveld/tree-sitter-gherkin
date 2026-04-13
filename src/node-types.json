@@ -254,7 +254,21 @@
   {
     "type": "step_text",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "table_row",
@@ -351,7 +365,15 @@
     "named": true
   },
   {
+    "type": "number",
+    "named": true
+  },
+  {
     "type": "rule_keyword",
+    "named": true
+  },
+  {
+    "type": "string",
     "named": true
   },
   {

@@ -82,7 +82,16 @@ module.exports = grammar({
       optional(field('text', $.step_text)),
     ),
     step_keyword: $ => choice('Given', 'When', 'Then', 'And', 'But', '*'),
-    step_text: $ => repeat1($._word),
+    step_text: $ => repeat1(choice($.string, $.number, $._word)),
+
+    // String literal — double- or single-quoted, no line breaks.
+    string: $ => token(prec(5, choice(
+      /"[^"\n\r]*"/,
+      /'[^'\n\r]*'/,
+    ))),
+
+    // Integer or float (optionally signed).
+    number: $ => token(prec(5, /-?\d+(\.\d+)?/)),
 
     // ---------- tables ----------
     table_row: $ => seq(
@@ -109,6 +118,6 @@ module.exports = grammar({
 
     // plain word token (non-whitespace). Used for the `word` directive so
     // literal keywords like `Given` only match as whole words.
-    _word: $ => /[^\s|@#"`][^\s]*/,
+    _word: $ => /[^\s|@#"'`][^\s]*/,
   },
 });

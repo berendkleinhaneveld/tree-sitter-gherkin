@@ -33,13 +33,13 @@ Feature: Math
     name: (header_text))
   (step
     keyword: (step_keyword)
-    text: (step_text))
+    text: (step_text (number)))
   (step
     keyword: (step_keyword)
     text: (step_text))
   (step
     keyword: (step_keyword)
-    text: (step_text)))
+    text: (step_text (number))))
 
 =====================
 tags

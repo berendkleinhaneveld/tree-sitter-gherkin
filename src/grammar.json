@@ -454,8 +454,52 @@
     "step_text": {
       "type": "REPEAT1",
       "content": {
-        "type": "SYMBOL",
-        "name": "_word"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "string"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "number"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_word"
+          }
+        ]
+      }
+    },
+    "string": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 5,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "\"[^\"\\n\\r]*\""
+            },
+            {
+              "type": "PATTERN",
+              "value": "'[^'\\n\\r]*'"
+            }
+          ]
+        }
+      }
+    },
+    "number": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 5,
+        "content": {
+          "type": "PATTERN",
+          "value": "-?\\d+(\\.\\d+)?"
+        }
       }
     },
     "table_row": {
@@ -606,7 +650,7 @@
     },
     "_word": {
       "type": "PATTERN",
-      "value": "[^\\s|@#\"`][^\\s]*"
+      "value": "[^\\s|@#\"'`][^\\s]*"
     }
   },
   "extras": [

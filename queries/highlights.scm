@@ -8,6 +8,10 @@
 ; Step keywords — Given / When / Then / And / But / *
 (step_keyword) @keyword
 
+; String and number literals inside step text
+(string) @string
+(number) @number
+
 ; Tags — @smoke, @wip
 (tag) @attribute
 

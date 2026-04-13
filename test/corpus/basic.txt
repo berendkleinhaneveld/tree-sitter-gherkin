@@ -118,7 +118,7 @@ Feature: Table
     name: (header_text))
   (step
     keyword: (step_keyword)
-    text: (step_text))
+    text: (step_text (parameter) (parameter)))
   (examples_header
     keyword: (examples_keyword))
   (table_row (table_cell) (table_cell))

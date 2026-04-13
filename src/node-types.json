@@ -264,6 +264,10 @@
           "named": true
         },
         {
+          "type": "parameter",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         }
@@ -366,6 +370,10 @@
   },
   {
     "type": "number",
+    "named": true
+  },
+  {
+    "type": "parameter",
     "named": true
   },
   {

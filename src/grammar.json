@@ -458,6 +458,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "parameter"
+          },
+          {
+            "type": "SYMBOL",
             "name": "string"
           },
           {
@@ -469,6 +473,17 @@
             "name": "_word"
           }
         ]
+      }
+    },
+    "parameter": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 5,
+        "content": {
+          "type": "PATTERN",
+          "value": "<[^>\\n\\r]*>"
+        }
       }
     },
     "string": {
@@ -650,7 +665,7 @@
     },
     "_word": {
       "type": "PATTERN",
-      "value": "[^\\s|@#\"'`][^\\s]*"
+      "value": "[^\\s|@#\"'`<][^\\s]*"
     }
   },
   "extras": [

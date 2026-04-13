@@ -1,0 +1,41 @@
+=====================
+outline with parameters
+=====================
+
+Feature: f
+  Scenario Outline: eating
+    Given there are <start> cucumbers
+    When I eat <eat> cucumbers
+    Then I should have <left> cucumbers
+
+---
+
+(source_file
+  (feature_header keyword: (feature_keyword) name: (header_text))
+  (scenario_header keyword: (scenario_keyword) name: (header_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text (parameter)))
+  (step
+    keyword: (step_keyword)
+    text: (step_text (parameter)))
+  (step
+    keyword: (step_keyword)
+    text: (step_text (parameter))))
+
+=====================
+multiple parameters on one line
+=====================
+
+Feature: f
+  Scenario Outline: s
+    Given <a> plus <b> equals <c>
+
+---
+
+(source_file
+  (feature_header keyword: (feature_keyword) name: (header_text))
+  (scenario_header keyword: (scenario_keyword) name: (header_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text (parameter) (parameter) (parameter))))

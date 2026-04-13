@@ -87,9 +87,9 @@ Feature: f
 (source_file
   (feature_header keyword: (feature_keyword) name: (header_text))
   (scenario_header keyword: (scenario_keyword) name: (header_text))
-  (step keyword: (step_keyword) text: (step_text))
+  (step keyword: (step_keyword) text: (step_text (parameter)))
   (scenario_header keyword: (scenario_keyword) name: (header_text))
-  (step keyword: (step_keyword) text: (step_text)))
+  (step keyword: (step_keyword) text: (step_text (parameter))))
 
 =====================
 empty table cell

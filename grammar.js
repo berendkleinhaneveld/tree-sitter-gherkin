@@ -82,7 +82,10 @@ module.exports = grammar({
       optional(field('text', $.step_text)),
     ),
     step_keyword: $ => choice('Given', 'When', 'Then', 'And', 'But', '*'),
-    step_text: $ => repeat1(choice($.string, $.number, $._word)),
+    step_text: $ => repeat1(choice($.parameter, $.string, $.number, $._word)),
+
+    // Scenario Outline placeholder, e.g. <start>
+    parameter: $ => token(prec(5, /<[^>\n\r]*>/)),
 
     // String literal — double- or single-quoted, no line breaks.
     string: $ => token(prec(5, choice(
@@ -118,6 +121,6 @@ module.exports = grammar({
 
     // plain word token (non-whitespace). Used for the `word` directive so
     // literal keywords like `Given` only match as whole words.
-    _word: $ => /[^\s|@#"'`][^\s]*/,
+    _word: $ => /[^\s|@#"'`<][^\s]*/,
   },
 });

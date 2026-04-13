@@ -11,7 +11,7 @@
 ; String, number, and parameter placeholders inside step text
 (string) @string
 (number) @number
-(parameter) @variable
+(parameter) @embedded @constant
 
 ; Tags — @smoke, @wip
 (tag) @attribute

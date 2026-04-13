@@ -1,0 +1,151 @@
+=====================
+feature header only
+=====================
+
+Feature: A simple calculator
+
+---
+
+(source_file
+  (feature_header
+    keyword: (feature_keyword)
+    name: (header_text)))
+
+=====================
+scenario with steps
+=====================
+
+Feature: Math
+
+  Scenario: Add two numbers
+    Given I have entered 50 into the calculator
+    When I press add
+    Then the result should be 100
+
+---
+
+(source_file
+  (feature_header
+    keyword: (feature_keyword)
+    name: (header_text))
+  (scenario_header
+    keyword: (scenario_keyword)
+    name: (header_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text)))
+
+=====================
+tags
+=====================
+
+@smoke @wip
+Feature: Tagged
+
+  @slow
+  Scenario: tagged scenario
+    Given a thing
+
+---
+
+(source_file
+  (tag_line (tag) (tag))
+  (feature_header
+    keyword: (feature_keyword)
+    name: (header_text))
+  (tag_line (tag))
+  (scenario_header
+    keyword: (scenario_keyword)
+    name: (header_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text)))
+
+=====================
+description lines
+=====================
+
+Feature: With description
+  This feature does something
+  across multiple description lines.
+
+  Scenario: foo
+    Given a bar
+
+---
+
+(source_file
+  (feature_header
+    keyword: (feature_keyword)
+    name: (header_text))
+  (description)
+  (description)
+  (scenario_header
+    keyword: (scenario_keyword)
+    name: (header_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text)))
+
+=====================
+table
+=====================
+
+Feature: Table
+
+  Scenario Outline: outline
+    Given <a> plus <b>
+
+    Examples:
+      | a | b |
+      | 1 | 2 |
+      | 3 | 4 |
+
+---
+
+(source_file
+  (feature_header
+    keyword: (feature_keyword)
+    name: (header_text))
+  (scenario_header
+    keyword: (scenario_keyword)
+    name: (header_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text))
+  (examples_header
+    keyword: (examples_keyword))
+  (table_row (table_cell) (table_cell))
+  (table_row (table_cell) (table_cell))
+  (table_row (table_cell) (table_cell)))
+
+=====================
+comment
+=====================
+
+# top comment
+Feature: Commented
+  # inner comment
+  Scenario: s
+    Given a thing
+
+---
+
+(source_file
+  (comment)
+  (feature_header
+    keyword: (feature_keyword)
+    name: (header_text))
+  (comment)
+  (scenario_header
+    keyword: (scenario_keyword)
+    name: (header_text))
+  (step
+    keyword: (step_keyword)
+    text: (step_text)))

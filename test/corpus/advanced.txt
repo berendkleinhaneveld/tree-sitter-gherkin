@@ -1,0 +1,109 @@
+=====================
+all step keywords
+=====================
+
+Feature: steps
+  Scenario: s
+    Given a
+    When b
+    Then c
+    And d
+    But e
+    * f
+
+---
+
+(source_file
+  (feature_header
+    keyword: (feature_keyword)
+    name: (header_text))
+  (scenario_header
+    keyword: (scenario_keyword)
+    name: (header_text))
+  (step keyword: (step_keyword) text: (step_text))
+  (step keyword: (step_keyword) text: (step_text))
+  (step keyword: (step_keyword) text: (step_text))
+  (step keyword: (step_keyword) text: (step_text))
+  (step keyword: (step_keyword) text: (step_text))
+  (step keyword: (step_keyword) text: (step_text)))
+
+=====================
+rule and background
+=====================
+
+Feature: f
+  Rule: r
+    Background: setup
+      Given a baseline
+
+    Scenario: s
+      When something
+
+---
+
+(source_file
+  (feature_header keyword: (feature_keyword) name: (header_text))
+  (rule_header keyword: (rule_keyword) name: (header_text))
+  (background_header keyword: (background_keyword) name: (header_text))
+  (step keyword: (step_keyword) text: (step_text))
+  (scenario_header keyword: (scenario_keyword) name: (header_text))
+  (step keyword: (step_keyword) text: (step_text)))
+
+=====================
+docstring
+=====================
+
+Feature: f
+  Scenario: s
+    Given a payload
+      """
+      hello world
+      second line
+      """
+
+---
+
+(source_file
+  (feature_header keyword: (feature_keyword) name: (header_text))
+  (scenario_header keyword: (scenario_keyword) name: (header_text))
+  (step keyword: (step_keyword) text: (step_text))
+  (docstring
+    (docstring_content)
+    (docstring_content)))
+
+=====================
+scenario outline and template
+=====================
+
+Feature: f
+  Scenario Outline: add
+    Given <a>
+
+  Scenario Template: sub
+    Given <b>
+
+---
+
+(source_file
+  (feature_header keyword: (feature_keyword) name: (header_text))
+  (scenario_header keyword: (scenario_keyword) name: (header_text))
+  (step keyword: (step_keyword) text: (step_text))
+  (scenario_header keyword: (scenario_keyword) name: (header_text))
+  (step keyword: (step_keyword) text: (step_text)))
+
+=====================
+empty table cell
+=====================
+
+Feature: f
+  Scenario: s
+    Examples:
+      | a |   | c |
+
+---
+
+(source_file
+  (feature_header keyword: (feature_keyword) name: (header_text))
+  (scenario_header keyword: (scenario_keyword) name: (header_text))
+  (examples_header keyword: (examples_keyword))
+  (table_row (table_cell) (table_cell) (table_cell)))

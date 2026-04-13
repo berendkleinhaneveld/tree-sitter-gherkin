@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-gherkin",
+  "version": "0.1.0",
+  "description": "Gherkin grammar for tree-sitter",
+  "main": "bindings/node",
+  "keywords": [
+    "parser",
+    "gherkin",
+    "tree-sitter"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.24.4"
+  }
+}
